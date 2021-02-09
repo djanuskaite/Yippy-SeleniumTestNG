@@ -16,9 +16,9 @@ public class SeleniumTestNG {
         Selenium.compareResultsNumber();
     }
 
-    @AfterTest
-    public void closeBrowser(){
-        Selenium.close();
-    }
+//    @AfterTest
+//    public void closeBrowser(){
+//        Selenium.close();
+//    }
 
 }

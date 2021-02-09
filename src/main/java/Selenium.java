@@ -44,29 +44,27 @@ public class Selenium {
     }
 
     public static String compareResultString(){
-        WebElement countResults = browser.findElement(By.xpath("*[@id=\"search-details\"]"));
+        WebElement countResults = browser.findElement(By.xpath("//*[@id=\"search-details\"]/strong[3]"));
 
         //kaip viena eilute reikia rasyti
         String resultsStrWithoutNumbers = countResults.getText()
-                .replaceAll("[0-9]", "")
-                .replaceAll("[ ,]","");
+                .replaceAll("[,]","");
 
         return resultsStrWithoutNumbers;
     }
 
     public static int compareResultsNumber(){
-        WebElement countResults = browser.findElement(By.className("query"));
+        WebElement countResults = browser.findElement(By.xpath("//*[@id=\"search-details\"]/strong[3]"));
         System.out.println(countResults.getText());
 
         //kaip viena eilute reikia rasyti
         String results = countResults.getText()
-                .replaceAll("[A-Za-z]", "")
-                .replaceAll("[.  ,]","");
+                .replaceAll("[,]","");
 
         //cia konvertuojam is string in integer
         int results2 = Integer.parseInt(results);
 
-        if (results2>100){
+        if (results2>20000000){
             System.out.println("Atlikejas yra populiarus!");
         }else {
             System.out.println("Altikejas nelabai populiarus");
